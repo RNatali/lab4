@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cula</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+<body>
+    <button id="registrationButton" onclick="openRegistrationForm()" style="position: fixed; top: 20px; right: 20px;">Зареєструватися</button>
+    
+    <div id="main">
+        <img src="корзина.png" id="openCartBtn" alt="Open Cart" onclick="openCart()" style="cursor: pointer; width: 60px; height: auto;">
+        <div class="row" id="container"></div>
+    </div>
+
+    <canvas id="myChart"></canvas>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeCartModal()">&times;</span> <!-- Додано кнопку закриття -->
+            <div id="cart-items" class="cart-items"></div>
+            <div id="sort-options-cart" class="sort-options"></div> 
+        </div>
+    </div>
+    
+    <button id="scrollBtn" class="scroll-btn">↑</button>
+
+    <div id="registrationForm" class="modal">
+        <div class="modal-content" style="width: 300px;">
+            <span class="close" onclick="closeRegistrationForm()">&times;</span> <!-- Додано кнопку закриття -->
+            <h2 style="text-align: center;">Реєстрація</h2>
+            <div id="errorMessages" style="color: red; text-align: center;"></div>
+            <label for="firstName" style="text-align: center;">Ім'я:</label><br>
+            <input type="text" id="firstName" name="firstName" required style="width: 100%;"><br>
+    
+            <label for="lastName" style="text-align: center;">Прізвище:</label><br>
+            <input type="text" id="lastName" name="lastName" required style="width: 100%;"><br>
+    
+            <label for="email" style="text-align: center;">Email:</label><br>
+            <input type="email" id="email" name="email" required style="width: 100%;"><br>
+    
+            <label for="password" style="text-align: center;">Пароль (не менше 8 символів):</label><br>
+            <input type="password" id="password" name="password" minlength="8" required style="width: 100%;"><br>
+            
+            <label for="confirmPassword" style="text-align: center;">Підтвердіть пароль:</label><br>
+            <input type="password" id="confirmPassword" name="confirmPassword" required style="width: 100%;"><br>
+    
+            <button type="button" id="generatePasswordButton" onclick="generateAndFillPassword()" style="width: 100%;">Генерувати пароль</button><br>
+            <button type="button" id="passwordVisibilityButton" onclick="togglePasswordVisibility()" style="width: 100%;">Показати пароль</button><br>
+    
+            <button onclick="validateRegistration()" style="width: 100%;">Зареєструватися</button>
+        </div>
+    </div>
+    
+    <div id="successModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close" onclick="closeSuccessModal()">&times;</span> <!-- Додано кнопку закриття -->
+            <h2>Ви успішно зареєструвалися!</h2>
+        </div>
+    </div>
+    
+    <button onclick="showLoginForm()">Увійти як адмін</button>
+    <div id="adminPanel" style="display: none;">
+        <button onclick="addProduct()">Додати товар</button>
+        <button onclick="editProduct()">Редагувати товар</button>
+        <button onclick="deleteProduct()">Видалити товар</button>
+    </div>
+    <div id="links" style="position: absolute; top: 2300px; right: 600px; background-color: rgba(251, 158, 234, 0.5); padding: 10px;">
+        <div style="position: relative;"><span style="font-size: 30px;">→</span>
+            <a href="https://cullinan.com.ua/">Переходь до cullinan</a><br>
+            <a href="https://cocolita.com.ua/uk">Переходь до cocolita</a><span style="font-size: 30px;">←</span>
+
+        </div>
+    </div>
+    
+    
+    <script src="script.js"></script>
+    <script src="mod1.js"></script>
+    <script src="users.js"></script>
+  
+
+
+</body>
+</html>
